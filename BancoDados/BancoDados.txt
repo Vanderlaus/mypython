@@ -1,0 +1,5 @@
+Adm de Banco de Dados pelo Docker, Postgre!
+consultar imagens = docker images
+consultar containeres = docker ps -a 
+banco de dados relacional: Postgres, Mysql, Oracle, MariaDB, SQL Server
+banco de dados não relacional: Redis, MongoDB
