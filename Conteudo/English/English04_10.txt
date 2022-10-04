@@ -1,0 +1,33 @@
+ Dialog
+
+ A: Good morning;
+
+ V: Good morning too;
+
+ A: How are you;
+
+ V: I am fine, and you;
+
+ A: Not complain. Nice to meet you;
+
+ V: Nice to meet you too;
+
+ A: What is your name?
+
+ V: My name is Vander;
+
+ A: Where are you from?
+
+ V: I am from Itapiranga, and you?
+
+ A: I am from Blumenau. How old are you?
+
+ V: I am forty one years old;
+
+ A: What do you do?
+
+ V: I am a counter;
+
+ A: Good, i go home now, bye my friend;
+
+ V: Bye, see you tomorrow.
