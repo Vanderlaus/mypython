@@ -3,6 +3,7 @@ consultar imagens = docker images
 consultar containeres = docker ps -a 
 banco de dados relacional: Postgres, Mysql, Oracle, MariaDB, SQL Server
 banco de dados não relacional: Redis, MongoDB
+docker run --name postgres-mordev -e POSTGRES_PASSWORD=123456 -e POSTGRES_USER=moredev -d -p 5432:5432 postgres
 
         Comandos SQL
 
@@ -163,3 +164,36 @@ add idade int null
 
 -- Deletar 3 funcionarios pelo ID
 delete from funcionario where id = 5
+
+		DQL
+
+begin transaction;
+	create table pessoas(
+		id int not null generated always as identity
+		,nome varchar(20) not null
+		,sobrenome varchar(30) not null
+		,idade int not null
+		,cpf varchar (14)
+	);
+	
+	create table funcionario( 
+		id int not null generated always as identity
+		,cargo varchar(20) not null
+		,setor varchar(30) not null
+		,salario int not null
+	);
+commit;
+end;
+
+begin transaction;
+	insert into pessoas(nome,sobrenome,idade,cpf) values ('Vander','Silva',20,'00000000000');
+	
+	savepoint inserindo_nome;
+	
+	insert into pessoas(nome,sobrenome,idade,cpf) values ('Lirinha','Boladao',18,'00000000000');
+	
+	rollback to inserindo_nome; #voltou para o savepoint inserindo_nome
+	
+commit;
+end;
+
