@@ -1,100 +1,83 @@
+--inclusao de dados--
+
+BEGIN TRANSACTION;
+-- pessoa vai herdar para cliente e funcionario
+-- Tabela pessoa
+    create table pessoa (
+	    nome varchar (60) not null
+	    ,cpf varchar (14) not null
+    );
+
+COMMIT;
+END;
+
+BEGIN TRANSACTION;
+-- Tabela cliente
+    create table cliente (
+	    cod_cli int generated always as IDENTITY PRIMARY key
+	    ,email varchar (60) not null
+    ) inherits (pessoa);
+COMMIT;
+END;
+
 begin transaction;
+-- Tabela filial
+    create table filial (
+	    cod_filial int generated always as identity primary key
+	    ,nome varchar (30) not null
+    );
+commit;
+end;
 
-insert into pessoa (nome,cpf,email)
-values('Vander Lauschner',03281099912,'vanderlaus@hotmail.com');
+begin transaction;
+-- Tabela funcionario
+    create table funcionario (
+	    cod_fun int generated always as identity primary key
+	    ,admissao date not null
+	    ,demissao date null
+	    ,id_filial int
+    ) inherits (pessoa);
+commit;
+end;
 
-insert into pessoa (nome,cpf,email)
-values('Gisele Silva',03281099914,'giselesilva@gmail.com');
+begin transaction;
+-- Tabela item
+    create table item (
+	    cod_item int generated always as identity primary key
+	    ,produto varchar (30) not null
+	    ,tipo varchar (30) not null
+	    ,valor decimal (7,2) not null
+    );
+commit;
+end;
 
-insert into pessoa (nome,cpf,email)
-values('Thiago Franca',03281099915,'thiagofranca@gmail.com');
+begin transaction;
+-- Tabela compra (Conexao com cliente e funcionario)
+    create table compra (
+	    cod_compra int generated always as identity primary key
+	    ,endereco_entrega varchar (60) not null
+	    ,data_compra date not null
+	    ,cod_cli int
+	    ,cod_fun int
+	    ,cod_item int
+    );
+commit;
+end;
 
+begin transaction;
+-- Fazendo as alterações e adicionando as FK (Foreign Keys) após criar as tabelas
+    alter table funcionario add constraint id_filial foreign key (id_filial) references filial(cod_filial);
+--
+    alter table compra add constraint cod_cli foreign key (cod_cli) references cliente (cod_cli);
+    alter table compra add constraint cod_fun foreign key (cod_fun) references funcionario (cod_fun);
+    alter table compra add constraint cod_item foreign key (cod_item) references item (cod_item);
 commit;
 end;
 
 begin transaction;
 
-insert into funcionario (id_pessoa,funcao,admissao)
-values(1,'petshop','2022-04-15');
-
-insert into funcionario (id_pessoa,funcao,admissao)
-values(2,'petgirl','2022-03-15');
-
-insert into funcionario (id_pessoa,funcao,admissao)
-values(3,'petshop2','2022-01-15');
-
-commit;
-end;
-
-begin transaction;
-
-insert into cliente (id_pessoa,idade,telefone)
-values(1,'41','47991158800');
-
-insert into cliente (id_pessoa,idade,telefone)
-values(2,'28','47991168800');
-
-insert into cliente (id_pessoa,idade,telefone)
-values(3,'31','4799254850');
-
-commit;
-end;
-
-begin transaction;
-
-insert into especie (descricao)
-values('cachorro');
-
-insert into especie (descricao)
-values('gato');
-
-commit;
-end;
-
-begin transaction;
-
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(2,1,'Thor','Shitzu',11,9,true);
-
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(3,2,'Flokinho','vira lata',4,1,true);
-
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(3,2,'Peter','vira lata',3,1,true);
-
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(3,2,'Thomas','vira lata',2,3,true);
-
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(4,2,'Chico','Siames',5,7,true);
-
-commit;
-end;
-
-begin transaction;
-
-insert into servico (descricao,valor)
-values('banho',40.00);
-
-insert into servico (descricao,valor)
-values('tosa',40.00);
-
-insert into servico (descricao,valor)
-values('combo',70.00);
-
-commit;
-end;
-
-begin transaction;
-
-insert into agendamento (data_agendamento,hora_dispinicial ,checkin,checkout,id_pet,id_servico,id_funcionario)
-values('2022-10-15','14:00:00','14:05:00','14:55:00',1,3,5);
-
-insert into agendamento (data_agendamento,hora_dispinicial,checkin,checkout,id_pet,id_servico,id_funcionario)
-values('2022-10-18','15:00:00','15:15:00','16:15:00',3,1,4);
-
-insert into agendamento (data_agendamento,hora_dispinicial,checkin,checkout,id_pet,id_servico,id_funcionario)
-values('2022-10-20','16:00:00','16:10:00','16:55:00',5,2,3);
+    alter table pessoa 
+    add constraint cpf unique (cpf);
 
 commit;
 end;

@@ -1,100 +1,107 @@
+--criacao tabelas--
+
 begin transaction;
 
-insert into pessoa (nome,cpf,email)
-values('Vander Lauschner',03281099912,'vanderlaus@hotmail.com');
+    insert into cliente (nome,cpf,email)
+    values('Vander Luis','032.810.999-12','vanderlaus@hotmail.com');
 
-insert into pessoa (nome,cpf,email)
-values('Gisele Silva',03281099914,'giselesilva@gmail.com');
+    insert into cliente (nome,cpf,email)
+    values('Gisele Maria','025.299.499-55','gisele@gmail.com.br');
 
-insert into pessoa (nome,cpf,email)
-values('Thiago Franca',03281099915,'thiagofranca@gmail.com');
+    insert into cliente (nome,cpf,email)
+    values('Thiago Martins','558.458.658-78','thiagomartins@gmail.com');
+
+    insert into filial (nome)
+    values('Blumenau');
+
+    insert into filial (nome)
+    values('Balneario Camboriu');
+
+    insert into filial (nome)
+    values('Curitiba');
+
+    insert into filial (nome)
+    values('Sao Paulo');
 
 commit;
 end;
 
 begin transaction;
 
-insert into funcionario (id_pessoa,funcao,admissao)
-values(1,'petshop','2022-04-15');
+    insert into funcionario (nome,cpf,admissao,id_filial)
+    values('Joao de Deus','045.554.658-99','2022-01-15',1);
 
-insert into funcionario (id_pessoa,funcao,admissao)
-values(2,'petgirl','2022-03-15');
+    insert into funcionario (nome,cpf,admissao,id_filial)
+    values('Lirinha Boladao','055.100.589-99','2021-10-05',2);
 
-insert into funcionario (id_pessoa,funcao,admissao)
-values(3,'petshop2','2022-01-15');
+    insert into funcionario (nome,cpf,admissao,id_filial)
+    values('Raiko Seixas','854.125.300-37','2019-04-30',3);
 
-commit;
-end;
-
-begin transaction;
-
-insert into cliente (id_pessoa,idade,telefone)
-values(1,'41','47991158800');
-
-insert into cliente (id_pessoa,idade,telefone)
-values(2,'28','47991168800');
-
-insert into cliente (id_pessoa,idade,telefone)
-values(3,'31','4799254850');
+    insert into funcionario (nome,cpf,admissao,id_filial)
+    values('Marcos Paulo','785.458.002-88','2010-09-10',4);
 
 commit;
 end;
 
 begin transaction;
 
-insert into especie (descricao)
-values('cachorro');
+    insert into item (produto,tipo,valor)
+    values ('Torneira Monocomando','metais',559.00);
 
-insert into especie (descricao)
-values('gato');
+    insert into item (produto,tipo,valor)
+    values ('Tapete para banheiro','banho',59.00);
 
-commit;
-end;
+    insert into item (produto,tipo,valor)
+    values ('Toalha de banho','banho',89.00);
 
-begin transaction;
+    insert into item (produto,tipo,valor)
+    values ('Toalheiro banheiro','banho',129.00);
 
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(2,1,'Thor','Shitzu',11,9,true);
+    insert into item (produto,tipo,valor)
+    values ('Escorredor de pratos','mesa',49.00);
 
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(3,2,'Flokinho','vira lata',4,1,true);
+    insert into item (produto,tipo,valor)
+    values ('toalha de louca','mesa',29.00);
 
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(3,2,'Peter','vira lata',3,1,true);
+    insert into item (produto,tipo,valor)
+    values ('lencol queen','cama',69.00);
 
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(3,2,'Thomas','vira lata',2,3,true);
-
-insert into pet (id_cliente,id_especie,nome,raca,peso,idade,sexo)
-values(4,2,'Chico','Siames',5,7,true);
+    insert into item (produto,tipo,valor)
+    values ('fronha travesseiro','cama',39.00);
 
 commit;
 end;
 
 begin transaction;
 
-insert into servico (descricao,valor)
-values('banho',40.00);
+    insert into compra (endereco_entrega,data_compra,cod_cli,cod_fun,cod_item)
+    values ('Rua da Matriz, 785, Centro, Itapiranga-SC','2022-10-02',1,3,7);
 
-insert into servico (descricao,valor)
-values('tosa',40.00);
+    insert into compra (endereco_entrega,data_compra,cod_cli,cod_fun,cod_item)
+    values ('Rua Max Hering, 184, Victor Konder, Blumenau-SC','2022-10-04',3,1,6);
 
-insert into servico (descricao,valor)
-values('combo',70.00);
+    insert into compra (endereco_entrega,data_compra,cod_cli,cod_fun,cod_item)
+    values ('Rua Sete de Setembro, 1000, Centro, Blumenau-SC','2022-10-05',2,2,4);
+
+    insert into compra (endereco_entrega,data_compra,cod_cli,cod_fun,cod_item)
+    values ('Rua Max Hering, 184, Victor Konder, Blumenau-SC','2022-10-06',3,4,1);
+
+    insert into compra (endereco_entrega,data_compra,cod_cli,cod_fun,cod_item)
+    values ('Rua Sete de Setembro, 1000, Centro, Blumenau-SC','2022-10-08',2,1,3);
+
+    insert into compra (endereco_entrega,data_compra,cod_cli,cod_fun,cod_item)
+    values ('Rua da Matriz, 785, Centro, Itapiranga-SC','2022-10-08',1,2,2);
+
+    insert into compra (endereco_entrega,data_compra,cod_cli,cod_fun,cod_item)
+    values ('Rua Sete de Setembro, 1000, Centro, Blumenau-SC','2022-10-10',2,3,8);
 
 commit;
 end;
 
 begin transaction;
 
-insert into agendamento (data_agendamento,hora_dispinicial ,checkin,checkout,id_pet,id_servico,id_funcionario)
-values('2022-10-15','14:00:00','14:05:00','14:55:00',1,3,5);
-
-insert into agendamento (data_agendamento,hora_dispinicial,checkin,checkout,id_pet,id_servico,id_funcionario)
-values('2022-10-18','15:00:00','15:15:00','16:15:00',3,1,4);
-
-insert into agendamento (data_agendamento,hora_dispinicial,checkin,checkout,id_pet,id_servico,id_funcionario)
-values('2022-10-20','16:00:00','16:10:00','16:55:00',5,2,3);
+    insert into item (produto,tipo,valor)
+    values ('Abridor de vinho','cozinha',22.50);
 
 commit;
 end;
