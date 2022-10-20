@@ -29,7 +29,7 @@ def menu():
                 print("\nOperação escolhida foi DIVISAO")
                 print("\nO resultado da operacao é: {:.2f}".format(Divisao))
             case _:
-                print("\nDigite uma opção válida")
+                print("\nDigite uma opção válida\n")
         
         cond = str(input('Deseja continuar?\nsim\nnão\n:>'))
         

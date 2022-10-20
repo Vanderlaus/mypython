@@ -8,11 +8,10 @@ def listar():
         for name in arquivo:
             name = name.strip()
             nomes.append(name)
-    
+            
     return nomes
 
-salvar('Vander')
+#salvar('Marcos')
 
-#print('Lista de Nomes',listar())
-
-
+print('Lista de Nomes',listar())
+    
