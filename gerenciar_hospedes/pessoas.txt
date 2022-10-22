@@ -1,0 +1,4 @@
+{'nome': 'Vander Luis', 'telefone': '4504505', 'idade': '20'}
+{'nome': 'Paulo Joao', 'telefone': '0545045', 'idade': '20'}
+{'nome': 'Renato Laus', 'telefone': '47055', 'idade': '20'}
+{'nome': 'Edi Laus\t', 'telefone': '545045', 'idade': '20'}
