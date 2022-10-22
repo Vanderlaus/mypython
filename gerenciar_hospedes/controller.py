@@ -1,3 +1,5 @@
+import os
+
 def salvar(dados):
     with open('gerenciar_hospedes/pessoas.txt', 'a') as arquivo:
         arquivo.write(str(dados)+"\n")
@@ -22,22 +24,30 @@ def buscar():
         if flag == 0:
             print("Cliente não encontrado")
 
-
 def checkout():
     print(">>> CHECKOUT <<<")
-    hospedeFind = input("Digite o indice do hóspede que deseja fazer o CHECKOUT: ")
-    hospede = [] 
+    hospedeFind = str(input("Digite o nome do hóspede que deseja fazer o checkout: "))
     with open('gerenciar_hospedes/pessoas.txt', 'r') as arquivo:
-        hospede = arquivo.readlines()
-        print(hospede)
+    
+        with open('gerenciar_hospedes/temp.txt', 'w') as output:
+            # iterate all lines from file
+            for line in arquivo:
+                # if substring contain in a line then don't write it
+                if hospedeFind in line.strip("\n"):
+                    output.write(line)
+    os.replace('temp.txt', 'pessoas.txt')
+#    hospede = [] 
+#    with open('gerenciar_hospedes/pessoas.txt', 'r') as arquivo:
+#        hospede = arquivo.readlines()
+#        print(hospede)
 #        for line in hospede:
 #            if hospedeFind in line:
 #                print(hospede.index(line))
 #                return
 #        print("Hospede não encontrado")    
-
-        for number, line in enumerate(hospede):
-            print(number, line)
+#
+#        for number, line in enumerate(hospede):
+#            print(number, line)
     
 def sair():
     print('Programa finalizado com sucesso'.center(50, "*"))
