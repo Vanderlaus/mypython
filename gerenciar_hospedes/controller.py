@@ -1,15 +1,18 @@
 import os
 
 def salvar(dados):
+    os.system('cls')
     with open('gerenciar_hospedes/pessoas.txt', 'a') as arquivo:
         arquivo.write(str(dados)+"\n")
         
 def listar():
+    os.system('cls')
     hospedes = []
     with open('gerenciar_hospedes/pessoas.txt', 'r') as arquivo:
         print(arquivo.read())
-            
+                
 def buscar():
+    os.system('cls')
     index=0
     flag=0
     print(">>> BUSCAR HOSPEDE <<<")
@@ -24,30 +27,19 @@ def buscar():
         if flag == 0:
             print("Cliente não encontrado")
 
-def checkout():
-    print(">>> CHECKOUT <<<")
-    hospedeFind = str(input("Digite o nome do hóspede que deseja fazer o checkout: "))
-    with open('gerenciar_hospedes/pessoas.txt', 'r') as arquivo:
-    
-        with open('gerenciar_hospedes/temp.txt', 'w') as output:
-            # iterate all lines from file
-            for line in arquivo:
-                # if substring contain in a line then don't write it
-                if hospedeFind in line.strip("\n"):
-                    output.write(line)
-    os.replace('temp.txt', 'pessoas.txt')
-#    hospede = [] 
-#    with open('gerenciar_hospedes/pessoas.txt', 'r') as arquivo:
-#        hospede = arquivo.readlines()
-#        print(hospede)
-#        for line in hospede:
-#            if hospedeFind in line:
-#                print(hospede.index(line))
-#                return
-#        print("Hospede não encontrado")    
-#
-#        for number, line in enumerate(hospede):
-#            print(number, line)
+def checkout(hospedeCheckout):
+    os.system('cls')
+    with open('gerenciar_hospedes/pessoas.txt') as file:
+        lines = file.readlines()
+
+    if(hospedeCheckout <= len(lines)):
+        del lines[hospedeCheckout - 1]
+
+        with open('gerenciar_hospedes/pessoas.txt', "w") as file:
+            for line in lines:
+                file.write(line)
+    else:
+        print(f"\nNão existe um hospede com este índice > {hospedeCheckout} <\n")
     
 def sair():
     print('Programa finalizado com sucesso'.center(50, "*"))
