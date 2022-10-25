@@ -17,3 +17,4 @@ def cadastrar():
       
 def listar():
     print(funcionario)
+    
