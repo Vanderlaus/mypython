@@ -11,5 +11,7 @@ def menu():
             case 3:
                 print("Você saiu da aplicação")
                 break
+            case _:
+                print("Digite uma opção válida")
 
 menu()
