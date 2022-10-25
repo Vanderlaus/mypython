@@ -1,4 +1,7 @@
-from controllerlista import cadastrar,listar
+from controllerlista import cadastrar,listar,finalizar
+import os
+
+os.system('cls')
 
 def menu():
     while True:
@@ -7,9 +10,11 @@ def menu():
             case '1':
                 cadastrar()
             case '2':
+                print('-='*30)
                 listar()
             case '3':
-                print("Você saiu da aplicação")
+                print("\nResultado dos dados cadastrados\n")
+                finalizar()
                 break
             case _:
                 print("Digite uma opção válida")
