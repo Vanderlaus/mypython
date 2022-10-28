@@ -1,20 +1,23 @@
-funcionario = []
+#funcao list() para criar lista e dict() para criar dicionário
+funcionario = list()
+dados = dict()
 
 def cadastrar():
-    dados = {}
-    dados["nome"] = str(input('Digite seu nome: '))
-    dados["anonas"] = str(input('Ano de Nascimento: '))
+    dados["nome"] = input('Digite seu nome: ').strip().capitalize()
+    dados["anonas"] = int(input('Ano de Nascimento: '))
     while True:
         dados["carteira"] = str(input('Digite sua carteira de trabalho: '))
         if dados["carteira"] != "":
-            dados["anocont"] = str(input('Digite o ano da contratação: '))
-            dados["salario"] = str(input('Digite seu salário: '))
+            dados["anocont"] = int(input('Digite o ano da contratação: '))
+            dados["salario"] = float(input('Digite seu salário: '))
             break
         else:
-            print(funcionario)
             break
     funcionario.append(dados)
       
 def listar():
-    print(funcionario)
+    print('-'*35, 'Dados Funcionarios', '-'*35)
+    for chave, valor in dados.items():
+        print(f"{chave}: {valor}")
+
     
