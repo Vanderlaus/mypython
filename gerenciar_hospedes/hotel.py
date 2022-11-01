@@ -1,4 +1,5 @@
-from controller import *
+from controller import salvar, listar, buscar, checkout, sair
+import os
 
 funcoes = ['1','2','3','4','5']
 

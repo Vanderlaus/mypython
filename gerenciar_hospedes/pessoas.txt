@@ -1,2 +1,1 @@
-{'nome': 'Vander Luis', 'telefone': '45708', 'idade': '50'}
-{'nome': 'Joao de Deus', 'telefone': '47911548800', 'idade': '35'}
+{'nome': 'VANDER', 'telefone': '47991152180', 'idade': '50'}
