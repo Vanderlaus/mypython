@@ -14,3 +14,9 @@ carro3 = Carro('Hyundai','Azera', 40000.00)
 print('*'*50)
 print(f"Imprimindo carro3 {carro3}")
 print('*'*50)
+
+carro2.marca = 'Chevrolet'
+carro2.modelo = 'Onix'
+carro2.valor = 60000.00
+
+print(f'\nDados carro2: {carro2.marca} - {carro2.modelo} - {carro2.valor}\n')
