@@ -1,6 +1,6 @@
 class Conta:
     
-    # __init__ = construtor
+    # __init__ = metodo construtor
     def __init__(self, numero, titular, saldo, limite):
         print(f"Imprimindo Construtor {self}")
         
