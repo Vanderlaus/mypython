@@ -6,6 +6,13 @@ class Animal:
         self.__cor = cor
         self.__porte = porte
 
+    #@property
+    #def especie(self):
+    #    return self.__especie
+    #@especie.setter
+    #def especie(self, especie):
+    #    self.__especie = especie
+        
     def set_especie(self, especie):
         self.__especie = especie
     def get_especie(self):
@@ -28,3 +35,4 @@ class Animal:
 
     def __str__(self):
         return f'{self.get_especie()} - {self.get_raca()} - {self.get_cor()} - {self.get_porte()}'
+    #    return f'{self.especie()} - {self.raca()} - {self.cor()} - {self.porte()}'

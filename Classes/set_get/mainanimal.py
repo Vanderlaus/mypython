@@ -10,5 +10,5 @@ print(animal)
 print('Animal 2:')
 animal2 = Animal(str(input('Digite a especie do animal:> ')),str(input('Digite a raça:> ')),str(input('Digite a cor:> ')),str(input('Digite o porte:> ')))
 
-print('O animal da especie {} da raça {} de porte {} e cor {}.\n'.format(Animal.get_especie(animal2),Animal.get_raca(animal2),Animal.get_porte(animal2),Animal.get_cor(animal2)))
+print('O animal da especie {} da raça {} de porte {} e cor {}.\n'.format(animal2.get_especie(),animal2.get_raca(),animal2.get_porte(),animal2.get_cor()))
 print(animal2)
