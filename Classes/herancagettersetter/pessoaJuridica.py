@@ -15,14 +15,14 @@ class PessoaJuridica(Conta):
         return self.__segundo_titular
     @segundo_titular.setter
     def segundo_titular(self, segundo_titular):
-        self.__segundo_titular = segundo_titular
+        self.__segundo_titular = segundo_titular.title()
         
     @property
     def titular(self):
         return self.__titular
     @titular.setter
     def titular(self, titular):
-        self.__titular = titular
+        self.__titular = titular.title()
     
     @property
     def cnpj(self):
