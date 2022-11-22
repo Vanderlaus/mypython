@@ -1,20 +1,22 @@
 from conta import Conta
 from controller import create, read, update, delete
 
-def menu():
-    conta = Conta()
-    conta.titular = 'Vander Luis'
-    conta.numero = 123456
-    conta.saldo = 2000.0
-    create(conta)
+conta = Conta()
+conta.titular = 'Gisele Boladona'
+conta.numero = 85472
+conta.saldo = 1000.0
+
+#create(conta)
     
-    #lista_contas = read()
+#lista_contas = read()
+
+#print(lista_contas)
+
+#print("*"*30)
+
+#for c in lista_contas:
+    #print(c)
     
-    #for c in lista_contas:
-    #    print(c)
-    
-    #delete(85472)
-    
-    #update(85472)
-    
-menu()
+update(conta)
+
+#delete(123456)

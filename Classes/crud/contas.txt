@@ -1,2 +1,2 @@
-Gisele Maria;85472;2000.0
-Vander Luis;123456;2000.0
+Gisele Boladona;85472;1000.0
+Kelly Daiane;654321;1000.0
