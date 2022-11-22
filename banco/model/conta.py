@@ -17,4 +17,4 @@ class Conta:
         self.__numero_agencia = numero_agencia
         
     def __str__(self):
-        return f'{self.agencia}; {self.numero_agencia}'
+        return f'{self.agencia};{self.numero_agencia}'

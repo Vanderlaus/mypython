@@ -35,4 +35,4 @@ class PessoaJuridica(Conta):
         self.__saldo_inicial = saldo_inicial
         
     def __str__(self):
-        return f'{super().__str__()}; {self.segundo_titular}; {self.titular}; {self.cnpj}; {self.saldo_inicial}'
+        return f'{super().__str__()};{self.titular};{self.cnpj};{self.saldo_inicial};{self.segundo_titular}'

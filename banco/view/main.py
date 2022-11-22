@@ -1,8 +1,8 @@
 from model.pessoaFisica import PessoaFisica
 from model.pessoaJuridica import PessoaJuridica
 
-from controller.juridico import create_pj, read_pj
-from controller.fisico import create_psf, read_psf
+from controller.juridico import create_pj, read_pj, update_pj, delete_pj
+from controller.fisico import create_psf, read_psf, update_psf, delete_psf
 
 def menu():
     menu = 1
@@ -10,7 +10,7 @@ def menu():
         
         print('*'*25,'CADASTRO DE CONTAS','*'*25)
         print('\nDigite a opção desejada')
-        menu_inicial = int(input("\n1.Pessoa Física\n2.Pessoa Juridica\n:> "))
+        menu_inicial = int(input("[1]Pessoa Fisica\n[2]Pessoa Juridica\n[3]Sair do Programa\n>> "))
         
         match menu_inicial:
             case 1:
@@ -18,7 +18,7 @@ def menu():
                 
                 print('\nDigite a opção desejada')
                 
-                menu = int(input('\n1.Cadastrar Conta\n2.Listar Conta\n0.Sair do Programa\n:> '))
+                menu = int(input('[1]Criar Conta PF\n[2]Listar Contas Pessoa Fisica\n[3]Alterar Titular/CPF/Saldo\n[4]Deletar Conta pelo Titular\n>> '))
                 
                 match menu:
                     
@@ -35,10 +35,21 @@ def menu():
                     case 2:
                         read_psf()
 
+                    case 3:
+                        altera_titular = input("Altere o nome do Titular\n>> ")
+                        update_psf(altera_titular)
+
+                    case 4:
+                        titular_deleta = input("Digite o Titular para deletar a Conta\n>> ")
+                        delete_psf(titular_deleta)
+
+                    case _:
+                        print('Opção Inválida. Retornando ao Menu Inicial.')
+
             case 2:
                 print('*'*20,'CADASTRO DE CONTA PESSOA JURÍDICA','*'*20)
                 print('\nDigite a opção desejada')
-                menu = int(input('\n1.Cadastrar Conta\n2.Listar Conta\n0.Sair do Programa\n:> '))
+                menu = int(input('[1]Criar Conta PJ\n[2]Listar Contas Pessoa Juridica\n[3]Alterar Titular/CPF/Saldo\n[4]Deletar Conta pelo Titular\n>> >> '))
                 match menu:
                     case 1:
                         conta = PessoaJuridica()
@@ -51,3 +62,19 @@ def menu():
                         create_pj(conta)
                     case 2:
                         read_pj()
+
+                    case 3:
+                        altera_titular = input("Altere o nome do Titular\n>> ")
+                        update_pj(altera_titular)
+
+                    case 4:
+                        titular_deleta = input("Digite o Titular para deletar a Conta\n>> ")
+                        delete_pj(titular_deleta)
+
+                    case _:
+                        print('Opção Inválida. Retornando ao Menu Inicial.')
+                        
+            case 3:
+                break
+            case _:
+                print('Digite uma Opção Válida.')
