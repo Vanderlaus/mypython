@@ -49,7 +49,7 @@ def menu():
             case 2:
                 print('*'*20,'CADASTRO DE CONTA PESSOA JURÍDICA','*'*20)
                 print('\nDigite a opção desejada')
-                menu = int(input('[1]Criar Conta PJ\n[2]Listar Contas Pessoa Juridica\n[3]Alterar Titular/CPF/Saldo\n[4]Deletar Conta pelo Titular\n>> >> '))
+                menu = int(input('[1]Criar Conta PJ\n[2]Listar Contas Pessoa Juridica\n[3]Alterar Titular/CNPJ/Saldo\n[4]Deletar Conta pelo Titular\n>> >> '))
                 match menu:
                     case 1:
                         conta = PessoaJuridica()
