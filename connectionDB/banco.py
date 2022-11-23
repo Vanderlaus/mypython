@@ -1,7 +1,7 @@
 import psycopg2
 
 try:
-    conn = psycopg2.connect(host = "localhost", port = "5435", database = "postgres", user="vanderlaus", password = "123456")
+    conn = psycopg2.connect(host = "localhost", port = "5433", database = "postgres", user="teste", password = "123456")
     print("Conexao realizada com sucesso.")
 except:
     print("Conexao com problema.")
