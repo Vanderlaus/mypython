@@ -10,9 +10,16 @@ if conn is not None:
     print("Conexao estavel.")
 
 cursor = conn.cursor()
-cursor.execute("CREATE TABLE teste (id serial PRIMARY KEY, nome VARCHAR(15), sobreNome VARCHAR(15));")
+#cursor.execute("CREATE TABLE teste (id serial PRIMARY KEY, nome VARCHAR(15), sobreNome VARCHAR(15));")
+#print("Tabela Criada.")
 
-print("Tabela Criada.")
+nome = 'Vander'
+sobrenome = 'Lauschner'
+
+cursor.execute("insert into teste (nome, sobrenome) values(%s,%s)", (nome, sobrenome))
+print("Cadastro efetuado")
+print("Cadastro efetuado")
+
 conn.commit()
 cursor.close()
 conn.close()
